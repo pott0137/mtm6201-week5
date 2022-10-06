@@ -1,0 +1,148 @@
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.transition
+.transform
+.animation {
+    border: 1px solid #999;
+    margin: 20px 0;
+    padding: 0;
+}
+.box {
+    width: 200px;
+    height: 200px;
+}
+.b1 {
+    background-color: #80e1d4;
+}
+.b2 {
+    background-color: purple;
+}
+.b3 {
+    background-color: red;
+}
+.b4 {
+    background-color: pink;
+} 
+.b5 {
+    background-color: green;
+}
+/*********************************
+            Transition
+ **********************************/
+.transition .b1 {
+    transition: width 1000ms ease-in-out;
+}
+.transition .b1:hover {
+    width: 400px;
+    height: 150px;
+}
+.transition .b2 {
+    transition: width 1000ms, height 500ms;
+    transition-timing-function: ease-out;
+    transition-delay: .5s;
+}
+.transition .b2:hover {
+    width: 250px;
+    height: 250px;
+}
+.transition .b3 {
+    transition: transform 1s cubic-bezier(.67,-0.61,0,1.2) 0.5s;
+}
+.transition .b3:hover {
+    transform: rotate(80deg);
+}
+.transition .b4 {
+    transition: all 1s ease-in;
+}
+.transition .b4:hover {
+    background-color: #cc80cc;
+    border-radius: 30px;
+}
+/********************** 
+        Transform
+***********************/
+.transform .box {
+    transition: all 1s ease-in;
+}
+.transform .b1:hover {
+    transform: translate(20px, 30px);
+}
+.transform .b2:hover {
+    transform: scale(1.2);
+}
+.transform .b3{
+    transform-origin: right top;
+}
+.transform .b3:hover {
+    transform: rotate(-45deg);    
+}
+.transform .b4 {
+    transform: skewX(15deg) skewY(30deg);
+}
+.transform .b4:hover {
+    transform: skewX(0deg) skewY(0deg);
+}
+/*****************************
+            Animation
+******************************/
+@keyframes changeColor{
+    from {
+        background-color: pink;
+    }
+    to {
+        background-color: salmon;
+    }
+}
+
+.animation .b1 {
+    animation-name: changeColor;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes movearound {
+    0% {
+        transform: translate(0,0);
+    }
+    25% {
+        transform: translate(200px,0);
+    }
+    50% {
+        transform: translate(200px,200px);
+    }
+    75% {
+        transform: translate(0,200px);
+    }
+    100% {
+        transform: translate(0,0);
+    }
+}
+.animation .b2 {
+    animation-name: movearound;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+}
+
+@keyframes transformMe {
+    0% {
+        transform: scale(.5) rotateX(0) translateX(0);
+    }
+    100% {
+        transform: scale(1) rotateX(180deg) translateX(600px);
+    }
+}
+.animation .b3 {
+    animation: transformMe 1.5s 12 alternate forwards ease-in-out;
+}
+.animation .b4 {
+    animation: transformMe 1.5s 3s infinite alternate forwards cubic-bezier(.67,-0.61,0,1.2);
+}
+.animation .b4:hover {
+    animation-play-state: paused;
+}
